@@ -1,2 +1,2 @@
 ---
-include_tasks: section_1/*/*.yml
+include_tasks: section_1/cis_1.1/1.1.1.1.yml
