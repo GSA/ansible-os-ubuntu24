@@ -1,5 +1,5 @@
 ---
-
+gossfile:
 # Section 1
   {{ if .Vars.ubtu24cis_section1 }}
   section_1/*/*.yml: {}
