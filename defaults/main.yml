@@ -214,9 +214,9 @@ cis_ubuntu2404_rule_5_1_24: true # NOTE: EXTENDED - depends also on 'cis_ubuntu2
 cis_ubuntu2404_rule_5_2_1: true
 cis_ubuntu2404_rule_5_2_2: true
 cis_ubuntu2404_rule_5_2_3: true
-cis_ubuntu2404_rule_5_2_4: true
-cis_ubuntu2404_rule_5_2_5: true
-cis_ubuntu2404_rule_5_2_6: true
+cis_ubuntu2404_rule_5_2_4: false
+cis_ubuntu2404_rule_5_2_5: false
+cis_ubuntu2404_rule_5_2_6: false
 cis_ubuntu2404_rule_5_2_7: true
 cis_ubuntu2404_rule_5_3_1_1: true
 cis_ubuntu2404_rule_5_3_1_2: true
