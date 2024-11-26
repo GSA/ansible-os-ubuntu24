@@ -413,8 +413,9 @@ cis_ubuntu2404_bootloader_password: random # pragma: allowlist secret
 cis_ubuntu2404_default_grub_file: /etc/default/grub
 # gdm banner message (cis_ubuntu2404_rule_1_7_2)
 cis_ubuntu2404_warning_banner: |
-         This is a U.S. General Services Administration Federal Government computer system that is FOR OFFICIAL USE ONLY. This system is subject to monitoring. 
-         Therefore, no expectation of privacy is to be assumed. Individuals found performing unauthorized activities may be subject to disciplinary action including criminal prosecution.
+         This is a U.S. General Services Administration Federal Government computer system that is FOR OFFICIAL USE ONLY. 
+                This system is subject to monitoring. Therefore, no expectation of privacy is to be assumed. 
+         Individuals found performing unauthorized activities may be subject to disciplinary action including criminal prosecution.
 # (cis_ubuntu2404_rule_1_7_4)
 cis_ubuntu2404_rule_gdm_lock_delay: 5
 cis_ubuntu2404_rule_gdm_idle_delay: 900
@@ -422,10 +423,8 @@ cis_ubuntu2404_rule_gdm_idle_delay: 900
 # choose time synchronization (cis_ubuntu2404_rule_2_3_1_1)
 cis_ubuntu2404_time_synchronization_service: chrony # chrony | systemd-timesyncd
 cis_ubuntu2404_time_synchronization_time_server:
-  - uri: time.cloudflare.com
-    config: iburst
-  - uri: ntp.ubuntu.com
-    config: iburst
+  - uri: 169.254.169.123
+    config: prefer iburst minpoll 4 maxpoll 4
 # general path for sysctl conf file
 cis_ubuntu2404_sysctl_file_path: /etc/sysctl.conf
 # cron allow users (cis_ubuntu2404_rule_2_4_1_8)
