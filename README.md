@@ -25,7 +25,7 @@ This Ansible role is designed to configure **Ubuntu 24.04** to **comply** with t
 It automates the application of hardening recommendations to enhance system security. \
 While this role can help mitigate common security risks, it is essential to tailor the configurations to your specific environment.
 
-Based on **[GSA Ubuntu Linux 24 LTS Server Security Benchmark](https://https://docs.google.com/spreadsheets/d/1EDt62ZHxy_Nq1mTUeXOG7Pg1vICM1jDH3nsGa2KJlwI/edit?gid=1253713100#gid=1253713100)**.
+Based on **[GSA Ubuntu Linux 24 LTS Server Security Benchmark](https://docs.google.com/spreadsheets/d/1EDt62ZHxy_Nq1mTUeXOG7Pg1vICM1jDH3nsGa2KJlwI/edit?gid=1253713100#gid=1253713100)**.
 
 Tested with:
 
