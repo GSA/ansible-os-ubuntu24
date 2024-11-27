@@ -1,8 +1,5 @@
 # CIS - Ubuntu 24.04
 
-[![Ansible Lint](https://github.com/MVladislav/ansible-cis-ubuntu-2404/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/MVladislav/ansible-cis-ubuntu-2404/actions/workflows/ansible-lint.yml)
-[![Ansible Molecule Test](https://github.com/MVladislav/ansible-cis-ubuntu-2404/actions/workflows/ci.yml/badge.svg)](https://github.com/MVladislav/ansible-cis-ubuntu-2404/actions/workflows/ci.yml)
-
 - [CIS - Ubuntu 24.04](#cis---ubuntu-2404)
   - [Disclaimer](#disclaimer)
   - [Notes](#notes)
@@ -28,7 +25,7 @@ This Ansible role is designed to configure **Ubuntu 24.04** to **comply** with t
 It automates the application of hardening recommendations to enhance system security. \
 While this role can help mitigate common security risks, it is essential to tailor the configurations to your specific environment.
 
-Based on **[CIS Ubuntu Linux 24.04 LTS Benchmark v1.0.0](https://downloads.cisecurity.org/#/)**.
+Based on **[GSA Ubuntu Linux 24 LTS Server Security Benchmark](https://docs.google.com/spreadsheets/d/1EDt62ZHxy_Nq1mTUeXOG7Pg1vICM1jDH3nsGa2KJlwI/edit?gid=1253713100#gid=1253713100)**.
 
 Tested with:
 

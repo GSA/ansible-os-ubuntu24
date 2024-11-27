@@ -162,8 +162,8 @@ cis_ubuntu2404_rule_4_2_2: true # NOTE: 'cis_ubuntu2404_firewall == ufw'
 cis_ubuntu2404_rule_4_2_3: true # NOTE: 'cis_ubuntu2404_firewall == ufw'
 cis_ubuntu2404_rule_4_2_4: true # NOTE: 'cis_ubuntu2404_firewall == ufw'
 cis_ubuntu2404_rule_4_2_5: true # NOTE: 'cis_ubuntu2404_firewall == ufw'
-cis_ubuntu2404_rule_4_2_6: true # NOTE: 'cis_ubuntu2404_firewall == ufw'
-cis_ubuntu2404_rule_4_2_7: true # NOTE: 'cis_ubuntu2404_firewall == ufw'
+cis_ubuntu2404_rule_4_2_6: false # NOTE: 'cis_ubuntu2404_firewall == ufw'
+cis_ubuntu2404_rule_4_2_7: false # NOTE: 'cis_ubuntu2404_firewall == ufw'
 cis_ubuntu2404_rule_4_3_1: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_2: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_3: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
@@ -171,17 +171,17 @@ cis_ubuntu2404_rule_4_3_4: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_5: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_6: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_7: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
-cis_ubuntu2404_rule_4_3_8: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
+cis_ubuntu2404_rule_4_3_8: false # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_9: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_3_10: true # NOTE: 'cis_ubuntu2404_firewall == nftables'
 cis_ubuntu2404_rule_4_4_1_1: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_1_2: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_1_3: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
-cis_ubuntu2404_rule_4_4_2_1: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
+cis_ubuntu2404_rule_4_4_2_1: false # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_2_2: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_2_3: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_2_4: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
-cis_ubuntu2404_rule_4_4_3_1: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
+cis_ubuntu2404_rule_4_4_3_1: false # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_3_2: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_3_3: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
 cis_ubuntu2404_rule_4_4_3_4: true # NOTE: 'cis_ubuntu2404_firewall == iptables'
@@ -412,7 +412,10 @@ cis_ubuntu2404_bootloader_password: random # pragma: allowlist secret
 # grub default file path (cis_ubuntu2404_rule_1_3_1_2)
 cis_ubuntu2404_default_grub_file: /etc/default/grub
 # gdm banner message (cis_ubuntu2404_rule_1_7_2)
-cis_ubuntu2404_warning_banner: Authorized users only. All activity may be monitored and reported.
+cis_ubuntu2404_warning_banner: |
+         This is a U.S. General Services Administration Federal Government computer system that is FOR OFFICIAL USE ONLY. 
+                This system is subject to monitoring. Therefore, no expectation of privacy is to be assumed. 
+         Individuals found performing unauthorized activities may be subject to disciplinary action including criminal prosecution.
 # (cis_ubuntu2404_rule_1_7_4)
 cis_ubuntu2404_rule_gdm_lock_delay: 5
 cis_ubuntu2404_rule_gdm_idle_delay: 900
@@ -420,10 +423,8 @@ cis_ubuntu2404_rule_gdm_idle_delay: 900
 # choose time synchronization (cis_ubuntu2404_rule_2_3_1_1)
 cis_ubuntu2404_time_synchronization_service: chrony # chrony | systemd-timesyncd
 cis_ubuntu2404_time_synchronization_time_server:
-  - uri: time.cloudflare.com
-    config: iburst
-  - uri: ntp.ubuntu.com
-    config: iburst
+  - uri: 169.254.169.123
+    config: prefer iburst minpoll 4 maxpoll 4
 # general path for sysctl conf file
 cis_ubuntu2404_sysctl_file_path: /etc/sysctl.conf
 # cron allow users (cis_ubuntu2404_rule_2_4_1_8)
@@ -436,7 +437,7 @@ cis_ubuntu2404_at_allow_users:
 # choose firewall (cis_ubuntu2404_rule_4_*)
 cis_ubuntu2404_firewall: ufw # ufw | nftables | iptables
 # define if outgoing traffic should be default deny or allow (cis_ubuntu2404_rule_4_2_7)
-cis_ubuntu2404_firewall_ufw_outgoing_policy: deny
+cis_ubuntu2404_firewall_ufw_outgoing_policy: allow
 # defined nftable table name (cis_ubuntu2404_rule_4_3_4-9)
 cis_ubuntu2404_firewall_nftables_table_name: filter
 
@@ -464,8 +465,8 @@ cis_ubuntu2404_ssh_ciphers:
   - aes192-ctr
   - aes128-ctr
 # (cis_ubuntu2404_rule_5_1_7)
-cis_ubuntu2404_ssh_client_alive_interval: 15
-cis_ubuntu2404_ssh_client_alive_count_max: 3
+cis_ubuntu2404_ssh_client_alive_interval: 900
+cis_ubuntu2404_ssh_client_alive_count_max: 0
 # KexAlgorithms (cis_ubuntu2404_rule_5_1_12)
 cis_ubuntu2404_ssh_kex_algorithms:
   - curve25519-sha256@libssh.org
@@ -511,12 +512,12 @@ cis_ubuntu2404_sudo_timestamp_timeout: 15 # 15 minutes or less as per your site 
 
 # (cis_ubuntu2404_rule_5_3_*)
 cis_ubuntu2404_faillock_deny: 5
-cis_ubuntu2404_faillock_unlock_time: 900
+cis_ubuntu2404_faillock_unlock_time: 1800
 cis_ubuntu2404_faillock_difok: 2
-cis_ubuntu2404_faillock_minlen: 14
+cis_ubuntu2404_faillock_minlen: 16
 cis_ubuntu2404_password_complexity:
   - key: "minclass"
-    value: "3"
+    value: "0"
   - key: "dcredit"
     value: "-1"
   - key: "ucredit"
@@ -538,8 +539,8 @@ cis_ubuntu2404_unix_encrypt_method: yescrypt # yescrypt | sha512
 # in file (unix.j2) and (cis_ubuntu2404_rule_5_3_3_4_4)
 cis_ubuntu2404_unix_use_authtok: "{{ cis_ubuntu2404_pwhistory_use_authtok }}"
 
-cis_ubuntu2404_password_pass_max_days: 365
-cis_ubuntu2404_password_pass_min_days: 1
+cis_ubuntu2404_password_pass_max_days: -1
+cis_ubuntu2404_password_pass_min_days: 0
 cis_ubuntu2404_password_pass_warn_age: 7
 cis_ubuntu2404_password_inactive: 45
 
@@ -567,7 +568,7 @@ cis_ubuntu2404_set_rsyslog_remote_protocol: tcp
 # audit backlog limit (cis_ubuntu2404_rule_6_2_1_4)
 cis_ubuntu2404_audit_backlog_limit: 8192
 # audit conf's (cis_ubuntu2404_rule_6_2_2_*)
-cis_ubuntu2404_audit_max_log_file: 8
+cis_ubuntu2404_audit_max_log_file: 20
 cis_ubuntu2404_audit_max_log_file_action: keep_logs
 cis_ubuntu2404_audit_disk_full_action: halt # halt | single
 cis_ubuntu2404_audit_disk_error_action: halt # halt | syslog | single
