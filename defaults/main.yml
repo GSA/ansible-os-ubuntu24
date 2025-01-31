@@ -370,7 +370,7 @@ cis_ubuntu2404_allow_gdm_gui: false
 # cups allow printer service, else remove (cis_ubuntu2404_rule_2_2_3)
 cis_ubuntu2404_allow_cups: false
 # ipv6 is required (cis_ubuntu2404_rule_3_1_1)
-cis_ubuntu2404_required_ipv6: false
+cis_ubuntu2404_required_ipv6: true
 # cis_ubuntu2404_journal_upload_url (cis_ubuntu2404_rule_6_1_2_1_1-4)
 cis_ubuntu2404_set_journal_upload: false
 # cis_ubuntu2404_journal_upload_url (cis_ubuntu2404_rule_6_1_3_6)
